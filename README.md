@@ -1,8 +1,7 @@
 # SDET 2024 - Technical Task
 
-[![CircleCI](https://circleci.com/gh/AbdulrahmanHammouda/SDET.svg?style=svg)](https://circleci.com/gh/AbdulrahmanHammouda/SDET)
+[![CircleCI](https://dl.circleci.com/status-badge/img/circleci/RsXeutxhcmpo2wBk2DoJkb/A9wjEdU4msxsDzMPQAHRGr/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/RsXeutxhcmpo2wBk2DoJkb/A9wjEdU4msxsDzMPQAHRGr/tree/main)
 
-Description of your project...
 
 ## Description
 
