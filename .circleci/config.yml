@@ -1,0 +1,39 @@
+version: 2.1
+
+jobs:
+  ui-tests:
+    docker:
+      - image: circleci/node:14.17-browsers
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm install
+      - run:
+          name: Run UI tests
+          command: npx nightwatch
+
+  api-tests:
+    docker:
+      - image: circleci/node:14.17
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm install
+
+      # Add a setup step to run the backend locally
+      - run:
+          name: Start backend server
+          command: npm run dev
+
+      # Run API tests after the backend server is started
+      - run:
+          name: Run API tests
+          command: npm test
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
