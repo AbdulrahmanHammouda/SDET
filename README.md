@@ -1,5 +1,8 @@
 # SDET 2024 - Technical Task
 
+[![CircleCI](https://dl.circleci.com/status-badge/img/circleci/RsXeutxhcmpo2wBk2DoJkb/A9wjEdU4msxsDzMPQAHRGr/tree/main.svg?style=svg&circle-token=25d308112a9ae8f3618bee26c14b05556431bf32)](https://dl.circleci.com/status-badge/redirect/circleci/RsXeutxhcmpo2wBk2DoJkb/A9wjEdU4msxsDzMPQAHRGr/tree/main)
+
+
 ## Description
 
 This project consists of automated tests for two parts:
