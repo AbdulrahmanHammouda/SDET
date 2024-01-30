@@ -4,7 +4,7 @@ module.exports = {
 
     // Use JavaScript to set the value of the dropdown
     browser.execute(function () {
-      document.querySelector('select[name="id_contact"]').value = '1'; // Assuming "2" is the value of the desired option
+      document.querySelector('select[name="id_contact"]').value = '1'; // Trying the first option of the menu 
     });
 
     // Continue with other form fields
