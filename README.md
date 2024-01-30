@@ -1,5 +1,9 @@
 # SDET 2024 - Technical Task
 
+[![CircleCI](https://circleci.com/gh/AbdulrahmanHammouda/SDET.svg?style=svg)](https://circleci.com/gh/AbdulrahmanHammouda/SDET)
+
+Description of your project...
+
 ## Description
 
 This project consists of automated tests for two parts:
