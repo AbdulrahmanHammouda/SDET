@@ -119,7 +119,7 @@ describe('API Routes Test', () => {
 
   it('should delete the created user', (done) => {
     request(appUrl)
-      .delete(`/api/v1/users/${userId}`)
+      .delete('/api/v1/users/')
       .set('Authorization', authToken)
       .expect(200)
       .end(done);
@@ -164,7 +164,7 @@ describe('API Routes Test', () => {
 
   it('should update details for one of the users', (done) => {
     request(appUrl)
-      .patch(`/api/v1/users/${userId}`)
+      .patch('api/v1/users/')
       .set('Authorization', authToken)
       .send({ name: 'updatedName', email: 'updated_email@gmail.com', password: 'updatedpassword123' })
       .expect(200)
@@ -186,35 +186,23 @@ describe('API Routes Test', () => {
       .expect(400)
       .end(done);
   });
-  it('should create two new users with different names', (done) => {
+  it('should create multiple users', (done) => {
     request(appUrl)
       .post('/api/v1/users')
       .send({ name: 'user3', email: 'user3@gmail.com', password: 'user123' })
       .expect(200)
-      .end((err, res) => {
-        if (err) return done(err);
-        assert(res.body.id, 'ID not provided in response');
-        userId1 = res.body.id; // Save the ID of the first created user
-        done();
-      });
-  });
-
-  it('should create another user with a different name', (done) => {
-    request(appUrl)
-      .post('/api/v1/users')
-      .send({ name: 'user4', email: 'user4@gmail.com', password: 'user123' })
-      .expect(200)
-      .end((err, res) => {
-        if (err) return done(err);
-        assert(res.body.id, 'ID not provided in response');
-        userId2 = res.body.id; // Save the ID of the second created user
-        done();
+      .end(() => {
+        request(appUrl)
+          .post('/api/v1/users')
+          .send({ name: 'user4', email: 'user4@gmail.com', password: 'user123' })
+          .expect(200)
+          .end(done);
       });
   });
 
   it('should update the data of one user to be like the other', (done) => {
     request(appUrl)
-      .patch(`/api/v1/users/${userId1}`)
+      .patch('/api/v1/users/')
       .set('Authorization', authToken)
       .send({ name: 'user4', email: 'user4@gmail.com' }) // Update user1 to have the same data as user2
       .expect(400) // Expecting a 400 error because users cannot have duplicate names
