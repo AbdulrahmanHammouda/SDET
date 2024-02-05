@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="1"
+            tests="1">
+
+  <testsuite name="homeTests"
+    errors="0" failures="1" hostname="" id="" package="homeTests" skipped="0"
+    tests="1" time="18.55" timestamp="">
+  
+    <testcase name="Homepage Search - Verify All Results are Dresses" classname="homeTests" time="9.275" assertions="2">
+
+      <failure message="Failed [strictEqual]: (Non-dress results found.) - expected &#34;0&#34; but got: &#34;2&#34; (1ms)">    at C:\Users\Abdul\Desktop\SDET\tests\homeTests.js:17:24
+    at NightwatchAPI.&lt;anonymous&gt; (C:\Users\Abdul\Desktop\SDET\pageObjects\HomePage.js:35:15)</failure>
+
+    
+    </testcase>
+  
+
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>

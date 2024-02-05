@@ -8,7 +8,7 @@ const reporter = new HtmlReporter({
 
 module.exports = {
   src_folders: ['tests'],
-  page_objects_path: ['pages'],
+  page_objects_path: ['pageObjects'],
   output_folder: 'reports',
 
   webdriver: {
