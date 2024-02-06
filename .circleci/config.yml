@@ -11,13 +11,6 @@ jobs:
           name: Clear npm cache
           command: npm cache clean --force
 
-      
-
-      
-      - run:
-          name: Install dependencies
-          command: npm install
-
       - run:
           name: Debug Nightwatch
           command: |
