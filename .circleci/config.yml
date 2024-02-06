@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: Install Nightwatch
-          command: npm install -g nightwatch
+          command: sudo npm install nightwatch -g
       - run:
           name: Install dependencies
           command: npm install
