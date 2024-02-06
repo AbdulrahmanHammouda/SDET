@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   ui-tests:
     docker:
-      - image: circleci/node
+      - image: circleci/node:18
     steps:
       - checkout
 
@@ -34,7 +34,7 @@ jobs:
 
   api-tests:
     docker:
-      - image: circleci/node
+      - image: circleci/node:18
     steps:
       - checkout
       - run:
@@ -50,7 +50,7 @@ jobs:
           command: npm test
   build:
     docker:
-      - image: circleci/node
+      - image: circleci/node:18
     steps:
       - checkout
       - run:
