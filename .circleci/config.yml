@@ -3,19 +3,26 @@ version: 2.1
 jobs:
   ui-tests:
     docker:
-      - image: circleci/node:14.17-browsers
+      - image: circleci/node
     steps:
       - checkout
       - run:
           name: Install dependencies
           command: npm install
       - run:
+          name: Uninstall node:events
+          command: npm uninstall node:events
+      - run:
+          name: install node:events
+          command: npm install node:events
+
+      - run:
           name: Run UI tests
           command: npx nightwatch
 
   api-tests:
     docker:
-      - image: circleci/node:14.17
+      - image: circleci/node
     steps:
       - checkout
       - run:
@@ -25,7 +32,7 @@ jobs:
       # Add a setup step to run the backend locally
       - run:
           name: Start backend server
-          command: npm run dev
+          command: npm run dev &
 
       # Run API tests after the backend server is started
       - run:
@@ -34,7 +41,7 @@ jobs:
 
   build:
     docker:
-      - image: circleci/node:14.17
+      - image: circleci/node
     steps:
       - checkout
       - run:
