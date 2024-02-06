@@ -15,9 +15,7 @@ jobs:
           name: install Nightwatch
           command: npm install nightwatch
 
-      - run:
-          name: Fix potential issues
-          command:  npm audit fix --force
+      
 
 
       - run:
