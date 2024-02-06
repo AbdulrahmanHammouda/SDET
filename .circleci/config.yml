@@ -6,9 +6,21 @@ jobs:
       - image: circleci/node
     steps:
       - checkout
+
+      - run:
+          name: Clear npm cache
+          command: npm cache clean --force
+
       - run:
           name: Install Nightwatch
           command: sudo npm install nightwatch -g
+
+      - run:
+          name: Display npm logs
+          command: |
+            cat /root/.npm/_logs/2024-02-06T20_30_07_991Z-debug.log
+            cat /root/.npm/_logs/2024-02-06T20_30_08_340Z-debug.log
+
       - run:
           name: Install dependencies
           command: npm install
