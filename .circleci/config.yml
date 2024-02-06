@@ -10,7 +10,11 @@ jobs:
       - run:
           name: Clear npm cache
           command: npm cache clean --force
-
+      - run:
+          name: Install ChromeDriver
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y chromium-chromedriver
       - run:
           name: install Nightwatch
           command: npm install nightwatch
@@ -21,11 +25,11 @@ jobs:
           command: sudo chmod +x node_modules/.bin/nightwatch
 
       - run:
-          name: Debug Nightwatch
+          name: Run tests
           command: |
-            echo "Starting Nightwatch execution"
+            
             sudo npx nightwatch
-            echo "Nightwatch execution completed"
+            
             
 
 
