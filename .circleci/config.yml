@@ -7,6 +7,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install Nightwatch
+          command: npm install -g nightwatch
+      - run:
           name: Install dependencies
           command: npm install
 
