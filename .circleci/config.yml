@@ -19,9 +19,9 @@ jobs:
           command: npm install
 
       - run:
-          name: Set executable permissions for Nightwatch
-          command: |
-            cd node_modules/.bin && chmod +x nightwatch && nightwatch
+          name: Run tests
+          command: npx Nightwatch
+            
 
 
 
