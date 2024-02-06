@@ -27,7 +27,7 @@ jobs:
 
       
 
-      # Run API tests after the backend server is started
+      
       - run:
           name: Run API tests
           command: npm test
@@ -47,6 +47,7 @@ workflows:
   version: 2
   build_and_deploy:
     jobs:
-      - build
       - ui-tests
       - api-tests
+      - build
+
