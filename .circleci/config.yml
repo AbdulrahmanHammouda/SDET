@@ -13,8 +13,7 @@ jobs:
       - run:
           name: Set executable permissions for Nightwatch
           command: |
-            cd node_modules/.bin
-            chmod +x nightwatch
+            cd node_modules/.bin && chmod +x nightwatch && nightwatch
 
 
 
