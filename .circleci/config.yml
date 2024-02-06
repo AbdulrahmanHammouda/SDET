@@ -24,23 +24,21 @@ jobs:
           name: Start backend server
           command: |
             npm run dev &
+            
 
-      
 
-      
+      # Run API tests after the backend server is started
       - run:
           name: Run API tests
           command: npm test
-
-build:
-  docker:
-    - image: circleci/node
-  steps:
-    - checkout
-    - run:
-        name: Install dependencies
-        command: npm install
-
+  build:
+    docker:
+      - image: circleci/node
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm install
       
 
 workflows:
