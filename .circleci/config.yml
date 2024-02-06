@@ -12,10 +12,15 @@ jobs:
           command: npm cache clean --force
 
       - run:
+          name: install Nightwatch
+          command: npm install nightwatch
+
+
+      - run:
           name: Debug Nightwatch
           command: |
             echo "Starting Nightwatch execution"
-            npx Nightwatch
+            npx nightwatch
             echo "Nightwatch execution completed"
             
 
