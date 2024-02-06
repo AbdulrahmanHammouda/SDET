@@ -15,11 +15,14 @@ jobs:
           name: Install dependencies
           command: npm install
 
+      # Run predeploy script to set executable permissions
+      - run:
+          name: Set executable permissions for Nightwatch
+          command: npm run predeploy
+
       - run:
           name: Run tests
           command: npx nightwatch
-            
-
 
   api-tests:
     docker:
@@ -30,13 +33,12 @@ jobs:
           name: Start backend server
           command: |
             npm run dev &
-            
-
 
       # Run API tests after the backend server is started
       - run:
           name: Run API tests
           command: npm test
+
   build:
     docker:
       - image: circleci/node:latest
@@ -45,7 +47,6 @@ jobs:
       - run:
           name: Install dependencies
           command: npm install
-      
 
 workflows:
   version: 2

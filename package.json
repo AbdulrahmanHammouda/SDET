@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "predeploy": "chmod +x node_modules/serverless/bin/serverless",
     "dev": "nodemon ./node_modules/mock-user-auth/bin/www.js",
 
     "test": "mocha --reporter mochawesome"
