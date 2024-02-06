@@ -11,18 +11,14 @@ jobs:
           name: Clear npm cache
           command: npm cache clean --force
 
-      
-
-      
       - run:
           name: Install dependencies
           command: npm install
 
       - run:
           name: Run tests
-          command: npx Nightwatch
+          command: npx nightwatch
             
-
 
 
   api-tests:
@@ -58,4 +54,3 @@ workflows:
       - ui-tests
       - api-tests
       - build
-
