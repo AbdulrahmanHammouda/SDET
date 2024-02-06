@@ -13,8 +13,10 @@ jobs:
       - run:
           name: Install ChromeDriver
           command: |
-            sudo apt-get update
-            sudo apt-get install -y chromium-chromedriver
+            CHROMEDRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+            wget -q -O /tmp/chromedriver.zip https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip
+            sudo unzip -q /tmp/chromedriver.zip -d /usr/local/bin/
+            sudo chmod +x /usr/local/bin/chromedriver
       - run:
           name: install Nightwatch
           command: npm install nightwatch
