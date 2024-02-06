@@ -16,7 +16,9 @@ jobs:
           command: npm install nightwatch
 
       
-
+      - run:
+          name: Change Nightwatch permissions
+          command: sudo chmod +x node_modules/.bin/nightwatch
 
       - run:
           name: Debug Nightwatch
