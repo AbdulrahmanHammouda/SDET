@@ -30,10 +30,6 @@ module.exports = {
     default: {
       desiredCapabilities: {
         browserName: 'chrome',
-        chromeOptions: {
-          binary: '/usr/bin/google-chrome-stable', // Specify the correct path to Chrome binary
-          args: ['--no-sandbox', '--disable-dev-shm-usage'], // Additional Chrome options
-        },
       },
     },
   },
