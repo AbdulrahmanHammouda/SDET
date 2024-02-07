@@ -62,7 +62,7 @@ jobs:
 
 
 
-      - run:
+       run:
           name: Start backend server
           command: npm run dev &
 
@@ -73,7 +73,8 @@ jobs:
       - run:
           name: Open New Bash Terminal
           command: |
-            gnome-terminal &  npm test
+            sleep 10
+            xterm -e 'bash -c "echo New terminal opened!; exec bash"' &
 
       - run:
           name: Run API tests
