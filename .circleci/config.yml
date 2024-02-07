@@ -20,14 +20,7 @@ jobs:
           name: Check install
           
           
-      - run:
-          command: |
-            google-chrome --version
-            
-            
-            chromedriver --version
-            
-          name: Check install
+      
 
       - run:
           name: Clear npm cache
