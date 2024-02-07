@@ -45,6 +45,16 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Clear npm cache
+          command: npm cache clean --force
+      
+      - run:
+          name: Install Mocha
+          command: npm install mocha
+      - run:
+          name: Change Mocha permissions
+          command: sudo chmod +x node_modules/.bin/mocha
+      - run:
           name: Start backend server
           command: npm run dev &
 
@@ -67,4 +77,4 @@ workflows:
     jobs:
       - build
       - ui-tests
-      #- api-tests
+      - api-tests
