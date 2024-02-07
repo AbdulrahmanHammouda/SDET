@@ -65,17 +65,9 @@ jobs:
       - run:
           name: Start backend server
           command: npm run dev &
-
       - run:
           name: Wait for server to start
           command: sleep 10  # Adjust sleep time as needed to ensure server is fully started
-
-      - run:
-          name: Open New Bash Terminal
-          command: |
-            sleep 10
-            xterm -e 'bash -c "echo New terminal opened!; exec bash"' &
-
       - run:
           name: Run API tests
           command: npm test
