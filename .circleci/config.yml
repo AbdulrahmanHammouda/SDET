@@ -9,7 +9,10 @@ jobs:
       - image: circleci/node:latest
     steps:
       - checkout
-      - browser-tools/install-browser-tools
+      - browser-tools/install-browser-tools:
+          version: latest
+          browsers: # Specify Chrome here
+            - chrome
       - node/install-packages
 
       - run:
