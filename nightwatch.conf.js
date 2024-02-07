@@ -17,16 +17,23 @@ module.exports = {
     port: 9515,
     host: 'localhost',
     ssl: false,
-     default_path_prefix: '',
-     proxy: undefined,
-     cli_args: {}
-    
+    default_path_prefix: '',
+    proxy: undefined,
+    cli_args: {},
+    chromeOptions: {
+      binary: '/usr/bin/google-chrome-stable', // Specify the correct path to Chrome binary
+      args: ['--no-sandbox', '--disable-dev-shm-usage'], // Additional Chrome options
+    },
   },
 
   test_settings: {
     default: {
       desiredCapabilities: {
         browserName: 'chrome',
+        chromeOptions: {
+          binary: '/usr/bin/google-chrome-stable', // Specify the correct path to Chrome binary
+          args: ['--no-sandbox', '--disable-dev-shm-usage'], // Additional Chrome options
+        },
       },
     },
   },
