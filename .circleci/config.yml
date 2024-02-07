@@ -1,22 +1,21 @@
 version: 2.1
 
+orbs:
+  node: circleci/node@4.7
+  browser-tools: circleci/browser-tools@1.1.0
 jobs:
   ui-tests:
     docker:
       - image: circleci/node:latest
     steps:
       - checkout
+      - browser-tools/install-browser-tools
+      - node/install-packages
 
       - run:
           name: Clear npm cache
           command: npm cache clean --force
-      - run:
-          name: Install ChromeDriver
-          command: |
-            CHROMEDRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
-            wget -q -O /tmp/chromedriver.zip https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip
-            sudo unzip -q /tmp/chromedriver.zip -d /usr/local/bin/
-            sudo chmod +x /usr/local/bin/chromedriver
+      
       - run:
           name: install Nightwatch
           command: npm install nightwatch
@@ -31,6 +30,8 @@ jobs:
           command: |
             
             sudo npx nightwatch
+      - store_test_results:
+          path: /tests_output
             
             
 
@@ -67,7 +68,7 @@ workflows:
   build_and_deploy:
     jobs:
       - build
-      #- ui-tests
+      - ui-tests
       #- api-tests
       
 
