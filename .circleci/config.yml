@@ -62,7 +62,7 @@ jobs:
 
 
 
-       run:
+      - run:
           name: Start backend server
           command: npm run dev &
 
