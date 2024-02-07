@@ -12,12 +12,6 @@ jobs:
     steps:
       - checkout
       
-          
-      
-
-      - run:
-          name: Clear npm cache
-          command: npm cache clean --force
       
       - run:
           name: Install Nightwatch
