@@ -20,7 +20,10 @@ jobs:
           name: Check install
           
           
-      
+      - run:
+          name: Change Chromedriver permissions
+          command: sudo chmod +x /usr/local/bin/chromedriver
+      - node/install-packages
 
       - run:
           name: Clear npm cache
