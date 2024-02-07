@@ -3,15 +3,14 @@ version: 2.1
 orbs:
   node: circleci/node@4.7
   browser-tools: circleci/browser-tools@1.1.0
+
 jobs:
   ui-tests:
     docker:
       - image: circleci/node:latest
     steps:
       - checkout
-      - browser-tools/install-browser-tools:
-          version: latest
-          browsers: chrome
+      - browser-tools/install-browser-tools
       - node/install-packages
 
       - run:
@@ -19,25 +18,16 @@ jobs:
           command: npm cache clean --force
       
       - run:
-          name: install Nightwatch
+          name: Install Nightwatch
           command: npm install nightwatch
 
-      
       - run:
           name: Change Nightwatch permissions
           command: sudo chmod +x node_modules/.bin/nightwatch
 
       - run:
-          name: Run tests
-          command: |
-            
-            sudo npx nightwatch
-      - store_test_results:
-          path: /tests_output
-            
-            
-
-
+          name: Run Nightwatch tests
+          command: sudo npx nightwatch
 
   api-tests:
     docker:
@@ -46,15 +36,12 @@ jobs:
       - checkout
       - run:
           name: Start backend server
-          command: |
-            npm run dev &
-            
+          command: npm run dev &
 
-
-      # Run API tests after the backend server is started
       - run:
           name: Run API tests
           command: npm test
+
   build:
     docker:
       - image: circleci/node:latest
@@ -63,7 +50,6 @@ jobs:
       - run:
           name: Install dependencies
           command: npm install
-      
 
 workflows:
   version: 2
@@ -71,6 +57,4 @@ workflows:
     jobs:
       - build
       - ui-tests
-      #- api-tests
-      
-
+      - api-tests
