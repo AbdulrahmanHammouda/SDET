@@ -11,8 +11,7 @@ jobs:
       - checkout
       - browser-tools/install-browser-tools:
           version: latest
-          browsers: # Specify Chrome here
-            - chrome
+          browsers: chrome
       - node/install-packages
 
       - run:
