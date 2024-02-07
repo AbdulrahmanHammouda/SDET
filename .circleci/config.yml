@@ -51,11 +51,16 @@ jobs:
 
       - run:
           name: Install Mocha
-          command: npm install mocha
+          command: npm install mocha nodemon --save-dev
 
       - run:
           name: Change Mocha permissions
           command: sudo chmod +x node_modules/.bin/mocha
+      - run:
+          name: Change mock-user-auth permissions
+          command: chmod +x ./node_modules/mock-user-auth/bin/www.js
+
+
 
       - run:
           name: Start backend server
