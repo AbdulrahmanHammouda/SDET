@@ -64,7 +64,7 @@ jobs:
 
       - run:
           name: Start backend server
-          command: npm run dev &
+          command: npm run dev & npm test
       - run:
           name: Wait for server to start
           command: sleep 10  # Adjust sleep time as needed to ensure server is fully started
