@@ -64,8 +64,8 @@ jobs:
 
       - run:
           name: Start backend server
-          command: npm run dev & npm test
-      
+          command: npm run dev & sleep 10 & npm test
+       
 
 
   build:
