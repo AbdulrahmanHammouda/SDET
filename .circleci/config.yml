@@ -59,7 +59,7 @@ jobs:
 
       - run:
           name: Start backend server
-          command: npm run dev &
+          command: npm run dev
 
       - run:
           name: Wait for server to start
