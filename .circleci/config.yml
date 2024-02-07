@@ -13,14 +13,14 @@ jobs:
       - checkout
       - browser-tools/install-browser-tools:
           chrome-version: 116.0.5845.96
-          firefox-version: 80.0.1
+          
       - run:
           command: |
             google-chrome --version
-            firefox --version
-            geckodriver --version
+            
+            
             chromedriver --version
-            java -jar /usr/local/bin/selenium.jar --version
+            
           name: Check install
 
       - run:
