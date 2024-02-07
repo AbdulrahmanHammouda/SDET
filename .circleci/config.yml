@@ -71,6 +71,11 @@ jobs:
           command: sleep 10  # Adjust sleep time as needed to ensure server is fully started
 
       - run:
+          name: Open New Bash Terminal
+          command: |
+            gnome-terminal &  # Replace with your terminal command
+
+      - run:
           name: Run API tests
           command: npm test
 
