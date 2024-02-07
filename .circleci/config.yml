@@ -13,7 +13,6 @@ jobs:
       - checkout
       - browser-tools/install-browser-tools:
           chrome-version: 116.0.5845.96
-          replace-existing: true
           firefox-version: 80.0.1
       - run:
           command: |
