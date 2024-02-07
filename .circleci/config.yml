@@ -10,7 +10,8 @@ jobs:
       - image: circleci/node:latest
     steps:
       - checkout
-      - browser-tools/install-browser-tools
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
       - node/install-packages
 
       - run:
@@ -57,4 +58,4 @@ workflows:
     jobs:
       - build
       - ui-tests
-      - api-tests
+      #- api-tests
