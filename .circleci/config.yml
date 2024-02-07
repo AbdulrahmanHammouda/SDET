@@ -44,23 +44,31 @@ jobs:
       - image: circleci/node:latest
     steps:
       - checkout
+
       - run:
           name: Clear npm cache
           command: npm cache clean --force
-      
+
       - run:
           name: Install Mocha
           command: npm install mocha
+
       - run:
           name: Change Mocha permissions
           command: sudo chmod +x node_modules/.bin/mocha
+
       - run:
           name: Start backend server
           command: npm run dev &
 
       - run:
+          name: Wait for server to start
+          command: sleep 10  # Adjust sleep time as needed to ensure server is fully started
+
+      - run:
           name: Run API tests
           command: npm test
+
 
   build:
     docker:
