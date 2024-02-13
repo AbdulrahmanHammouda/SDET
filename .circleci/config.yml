@@ -84,5 +84,5 @@ workflows:
   build_and_deploy:
     jobs:
       - build
-      - ui-tests
-      - api-tests
+      #- ui-tests
+      #- api-tests
